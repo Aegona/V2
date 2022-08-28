@@ -1,13 +1,16 @@
+-----------------------------------------------------------------------------------------
+-- script ผมทำเอง ขอบคุณที่พี่ สนับสนุนผม Script by AegonaChannel
+-----------------------------------------------------------------------------------------
 
-_G.TP = true
+
 
 
 
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
-local win = DiscordLib:Window("discord library")
+local win = DiscordLib:Window("z Aegona Hub z")
 
-local serv = win:Server("z Aegona Hub z Script V.Beta", " Test")
+local serv = win:Server("⛏️Script⛏️ V.Beta", " Test")
 
 local btns = serv:Channel("Auto - Farm")
 local tp = serv:Channel("TP")
@@ -17,6 +20,12 @@ btns:Toggle("Farm Box -- (ถ้าไม่วาปแปลว่ากล่
 _G.Farm = value
 end)
 
+btns:Toggle("TP Part ไป กล่องอื่น อัตโนมัติ", nil, function(value)
+    while value do wait()
+Instance.new("ForceField",game:GetService("Workspace").BossFightHitboxes.HitBox)
+
+end
+end)
 btns:Button(" วาป ออก จาก กล่อง ", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(54.55238342285156, 82.46776580810547, 746.6566162109375)
 end)
@@ -39,57 +48,59 @@ tp:Button("TP DargonCitys ", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(123.56641387939453, 73.42616271972656, 296.1081848144531)
 end)
 
-spawn(function()
-            while wait() do 
-                if _G.Farm then
-                    pcall(function()
-for i,v in pairs(game:GetService("Workspace").BossFightHitboxes:GetDescendants()) do
-   if v.Name == "ForceField" then 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
-wait(30)
-end
-end
-end)
-end
-end
+tp:Button("TP อิหยิป ", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(470.537598, 71.0699539, -3749.54199, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 end)
 
-egg:Toggle("EGG Demon", nil, function(value)
-_G.eggdemon = value
-end)
+
+
 
 
 spawn(function()
             while wait() do 
-                if _G.eggdemon then
-                    while _G.eggdemon do wait()  
-
-local args = {
-    [1] = "Demon Egg",
-    [2] = 4
-}
-
-game:GetService("ReplicatedStorage").Remotes.buyEgg:InvokeServer(unpack(args))
-wait(.1)
-game:GetService("ReplicatedStorage").Remotes.UpdatePetValues:FireServer()
-
-end
-end
-end
-end)
-
-spawn(function()
-            while wait(2) do 
                 if _G.TP then
-        Instance.new("ForceField",game:GetService("Workspace").BossFightHitboxes.HitBox)
+                    pcall(function()
+Instance.new("ForceField",game:GetService("Workspace").BossFightHitboxes.HitBox)
+end)
 end
 end
 end)
 
-btns:Button("กลับไปในกล่อง ", function()
+
+btns:Toggle("Clicks", nil, function(value)
+while value do wait()
+    game:GetService("ReplicatedStorage").Remotes.DamageBoss:FireServer()
+wait(.1)
+game:GetService("ReplicatedStorage").Remotes.Click:InvokeServer()
+wait(.1)
+end
+end)
+
+btns:Toggle("รีเบิรด์", nil, function(value)
+_G.Reb = value
+end)
+
+
+spawn(function()
+    while wait() do
+        if _G.Reb then
+                    game:GetService("ReplicatedStorage").Remotes.Rebirth:FireServer()
+end
+end
+end)
+
+spawn(function()
+    while wait() do
+        if _G.Farm then
 for i,v in pairs(game:GetService("Workspace").BossFightHitboxes:GetDescendants()) do
    if v.Name == "ForceField" then 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+wait(1)
+_G.TP = true
+
+wait(1)
+end
+end
 end
 end
 end)
