@@ -91,7 +91,9 @@ tp:Button("TP อิหยิป ", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(470.537598, 71.0699539, -3749.54199, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 end)
 
-
+egg:Toggle("EGG Demon", nil, function(value)
+_G.EggDemon = value
+end)
 
 
 
