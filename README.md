@@ -3,8 +3,47 @@
 -----------------------------------------------------------------------------------------
 
 
+-- Gui to Lua
+-- Version: 3.2
 
+-- Instances:
 
+local Aegona = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local ImageLabel = Instance.new("ImageLabel")
+local TextLabel = Instance.new("TextLabel")
+
+--Properties:
+
+Aegona.Name = "Aegona"
+Aegona.Parent = game.CoreGui
+Aegona.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = Aegona
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.Size = UDim2.new(0, 1257, 0, 839)
+
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.Position = UDim2.new(0.0310262535, 0, 0, 0)
+ImageLabel.Size = UDim2.new(0, 1199, 0, 839)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=6403436054"
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 0.550
+TextLabel.BorderSizePixel = 15
+TextLabel.Position = UDim2.new(0.119331747, 0, 0.655542314, 0)
+TextLabel.Size = UDim2.new(0, 911, 0, 251)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "เดียวผม กลับมา "
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+wait(2)
+game:GetService("CoreGui").Aegona:Destroy()
 
 local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
 
@@ -101,6 +140,21 @@ _G.TP = true
 wait(1)
 end
 end
+end
+end
+end)
+
+
+spawn(function()
+    while wait() do
+        if _G.EggDemon then
+local args = {
+    [1] = "Demon Egg",
+    [2] = 4
+}
+
+game:GetService("ReplicatedStorage").Remotes.buyEgg:InvokeServer(unpack(args))
+wait(.1)
 end
 end
 end)
